@@ -1,3 +1,25 @@
-Kek
-Shpeck
-🅰️🅱️🅾️🅱️🅰️
+<!-- <div class="page">
+  <div class="color" [style.background]="color" [style.width]="width + 'px' "></div>
+  <div class="text" [ngStyle]="{'color': color, 'font-size': fontSize + 'rem'}">Color</div>
+  <input type="text" placeholder="Color" [(ngModel)]="color">
+  <input type="number" [(ngModel)]="fontSize">
+  <input type="number" placeholder="Width" [(ngModel)]="width">
+</div>
+
+<div class="page">
+  <div *ngFor="let person of people">
+    <div class="person" *ngIf="person != 'Konstantin'">
+      {{person.name}} {{person.age}}
+    </div>
+  </div>
+</div> -->
+
+<!-- <div class="page">
+  <div class="person" [ngClass]="{'accent': person.accent}" *ngFor="let person of people2" (click)="accentPerson(person)">
+    {{person.getFullName()}} {{person.age}}
+    <input type="number" [(ngModel)]="person.age">
+  </div>
+  <input type="button" value="Sort" (click)="sortPeople2()">
+</div> -->
+
+<app-person [person]="person" *ngFor="let person of people2"></app-person>
