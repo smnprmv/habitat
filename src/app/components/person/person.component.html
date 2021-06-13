@@ -1,0 +1,25 @@
+<div class="name">
+    <div class="state" *ngIf="!edit">
+        {{ person.fullname }}
+        <app-button (btnClick)="changeName()" class="edit" text="Edit"></app-button>
+    </div>
+    <div class="state" *ngIf="edit">
+        <input type="text" [value]="person.fullname" #input>
+        <app-button (btnClick)="applyName(input)" class="edit" text="Save"></app-button>
+    </div>
+</div>
+
+
+
+
+<!-- edit: boolean = false -->
+
+<!-- <div class="person">
+    <div class="state" *ngIf="!edit">
+        <div>View name (not edit)</div>
+        <button (click)="edit = true">Edit</button>
+    </div>
+    <div class="state" *ngIf="edit">
+        <div>Edit name (not view)</div>
+    </div>
+</div> -->
