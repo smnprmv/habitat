@@ -11,7 +11,7 @@ import { ButtonComponent } from '../components/button/button.component';
 @NgModule({
   declarations: [
     AppComponent,
-    ProfileComponent
+    ProfileComponent,
     PersonComponent,
     ButtonComponent,
   ],
