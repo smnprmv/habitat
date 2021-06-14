@@ -23,18 +23,26 @@ export class TodoList {
   }
 
   // Метод, который перемещает элемент из одного списка в конец другого списка
-  // public moveObjective (index: number, from: TodoListType, to: TodoListType) {
-    
-  // }
+  public moveObjective (index: number, to: TodoListType) {
+    if (to == 'current') {
+      let move = this._completed.splice(index, 1)
+      this._current.push(...move)
+    }
+    else {
+      let move = this._current.splice(index, 1)
+      this._completed.push(...move)
+    }
+  }
 
-  // get current () : Todo[] {
+  get current () : Todo[] {
+    return this._current
+  }
 
-  // }
-
-  // get completed () : Todo[] {
-
-  // }
+  get completed () : Todo[] {
+    return this._completed
+  }
 }
+
 
 export class Todo {
   private _checked: boolean = false
@@ -51,5 +59,9 @@ export class Todo {
     let todo = new Todo(json.objective)
     todo.checked = json.checked
     return todo
+  }
+
+  get objective () {
+    return this._objective
   }
 }
