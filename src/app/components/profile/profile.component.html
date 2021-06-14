@@ -1,67 +1,61 @@
-View mode
+<!-- View mode -->
 <div class="profile">
   <div class="line">
-    <div class="avatar">SP</div>
-    <div class="info">
-      <div class="name">Sam Pirumov <span>@sam</span></div>
-      <div class="birthday">27 years</div>
+    <div class="avatar">{{user.letters}}</div>
+    <div class="info" *ngIf="edit == false">
+      <div class="info-content">
+        <div class="name">{{ user.fullname }}<span>@{{user.username}}</span></div>
+        <div class="birthday">{{user.age + " years old"}}</div>
+      </div>
+      <div class="button" (click)="editProfile()">Edit</div>
     </div>
-    <div class="button">Edit</div>
+    <div class="info" *ngIf="edit == true">
+      <div class="info-content">
+        <input type="text" class="name" [value]="user.fullname" #value>
+        <input type="text" class="birthday" [attr.value]="date" #bday>
+      </div>
+      <div class="button" (click)="saveProfile(value, bday)">Save</div>
+    </div>
+  </div>
+  <div class="switch">
+    <div class="case" [ngClass]="{'active': section == 'following'}" (click)="section = 'following'">Following</div>
+    <div class="case" [ngClass]="{'active': section == 'followers'}" (click)="section = 'followers'">Followers</div>
+  </div>
+  <div class="list">
+    <div class="mini-profile" *ngFor="let person of user[section]">
+      <div class="avatar">{{ person.letters }}</div>
+      <div class="info">
+        <div class="name">{{person.fullname}} <span>@{{person.username}}</span></div>
+        <div class="birthday">{{person.age}} years old</div>
+      </div>
+      <div class="button" (click)="unfollow(person.username)" *ngIf="ifFollow(person.username)">Unfollow</div>
+      <div class="button" (click)="follow(person.username)" *ngIf="!ifFollow(person.username)">Follow back</div>
+    </div>
+  </div>
+</div>
+<!-- Edit mode -->
+<!-- <div class="profile" *ngIf="edit == true">
+  <div class="line">
+    <div class="avatar">{{user.letters}}</div>
+    <div class="info">
+      <input type="text" class="name" [value]="user.fullname" #value>
+      <input type="text" class="birthday" [attr.value]="date" #bday>
+    </div>
+    <div class="button" (click)="saveProfile(value, bday)">Save</div>
   </div>
   <div class="switch">
     <div class="case active">Following</div>
     <div class="case">Followers</div>
   </div>
   <div class="list">
-    <div class="mini-profile">
-      <div class="avatar">VS</div>
+    <div class="mini-profile" *ngFor="let person of user[section]">
+      <div class="avatar">{{ person.letters }}</div>
       <div class="info">
-        <div class="name">Vladimir Simonov <span>@vlad</span></div>
-        <div class="birthday">26 years</div>
+        <div class="name">{{person.fullname}} <span>@{{person.username}}</span></div>
+        <div class="birthday">{{person.age}} years old</div>
       </div>
-      <div class="button">Unfollow</div>
-    </div>
-    <div class="mini-profile">
-      <div class="avatar">JK</div>
-      <div class="info">
-        <div class="name">Jeff Kaplan <span>@jeff</span></div>
-        <div class="birthday">48 years</div>
-      </div>
-      <div class="button">Unfollow</div>
+      <div class="button" (click)="unfollow(person.username)" *ngIf="ifFollow(person.username)">Unfollow</div>
+      <div class="button" (click)="follow(person.username)" *ngIf="!ifFollow(person.username)">Follow back</div>
     </div>
   </div>
-</div>
-<br>
-Edit mode
-<div class="profile">
-  <div class="line">
-    <div class="avatar">SP</div>
-    <div class="info">
-      <input type="text" class="name" value="Sam Pirumov">
-      <input type="date" class="birthday" value="1994-04-18">
-    </div>
-    <div class="button">Save</div>
-  </div>
-  <div class="switch">
-    <div class="case active">Following</div>
-    <div class="case">Followers</div>
-  </div>
-  <div class="list">
-    <div class="mini-profile">
-      <div class="avatar">VS</div>
-      <div class="info">
-        <div class="name">Vladimir Simonov <span>@vlad</span></div>
-        <div class="birthday">26 years</div>
-      </div>
-      <div class="button">Unfollow</div>
-    </div>
-    <div class="mini-profile">
-      <div class="avatar">JK</div>
-      <div class="info">
-        <div class="name">Jeff Kaplan <span>@jeff</span></div>
-        <div class="birthday">48 years</div>
-      </div>
-      <div class="button">Unfollow</div>
-    </div>
-  </div>
-</div>
+</div>-->
