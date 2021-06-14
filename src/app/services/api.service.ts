@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
-import { JSON, User } from '../classes/user';
+import { Injectable } from '@angular/core'
+import { JSON, User } from '../classes/user'
 
 const people = {
   vlad: User.fromJSON({
-    id: 'vlad',
+    username: 'vlad',
     name: {
       first: 'Vlad',
       last: 'Simonov'
@@ -13,7 +13,7 @@ const people = {
     following: []
   }),
   jeff: User.fromJSON({
-    id: 'jeff',
+    username: 'jeff',
     name: {
       first: 'Jeff',
       last: 'Kaplan'
@@ -23,7 +23,7 @@ const people = {
     following: []
   }),
   elon: User.fromJSON({
-    id: 'elon',
+    username: 'elon',
     name: {
       first: 'Elon',
       last: 'Musk'
@@ -33,7 +33,7 @@ const people = {
     following: []
   }),
   bill: User.fromJSON({
-    id: 'bill',
+    username: 'bill',
     name: {
       first: 'Bill',
       last: 'Gates'
@@ -43,7 +43,7 @@ const people = {
     following: []
   }),
   tony: User.fromJSON({
-    id: 'tony',
+    username: 'tony',
     name: {
       first: 'Tony',
       last: 'Stark'
@@ -59,7 +59,7 @@ const people = {
 })
 export class ApiService {
   private user: User = User.fromJSON({
-    id: 'sam',
+    username: 'sam',
     name: {
       first: 'Sam',
       last: 'Pirumov'

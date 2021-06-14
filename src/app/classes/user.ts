@@ -1,10 +1,12 @@
+import { NgLocaleLocalization } from "@angular/common"
+
 interface Name {
     first: string,
     last: string
 }
 
 export interface JSON {
-  id: string,
+  username: string,
   name: Name,
   birthday: Date,
   following: User[],
@@ -14,15 +16,15 @@ export interface JSON {
 export class User {
   public following: User[] = []
   public followers: User[] = []
-  public id: string
+  public username: string
 
   constructor (
     public name: Name,
     public birthday: Date,
-    id?: string
+    username?: string
   ) {
     // if id exists, set id, else generate random string id
-    this.id = id ? id : Math.random().toString(36).substr(3, 16)
+    this.username = username ? username : Math.random().toString(36).substr(3, 16)
   }
 
   get age () {
@@ -32,7 +34,7 @@ export class User {
   }
 
   static fromJSON (json: JSON) {
-    let user: User = new User(json.name, json.birthday, json.id)
+    let user: User = new User(json.name, json.birthday, json.username)
     for (let follower of json.followers)
       user.followers.push(follower)
     for (let following of json.following)
@@ -41,13 +43,52 @@ export class User {
     return user
   }
 
-  static getUsers () {
+  get letters () : string {
+    let letters: string
+    if (this.name.last) {
+      letters = this.name.first[0] + this.name.last[0]
+    }
+    else letters = this.name.first[0]
+    return letters
+  }
 
+  get fullname (): string {
+    return `${this.name.first} ${this.name.last}`
+  }
+
+  set fullname (value: string) {
+    let name: string[] = value.replace(/\s+/g, ' ').split(" ")
+    switch (name.length) {
+      case 0:
+        return
+      case 1:
+        this.name.first = name[0]
+        this.name.last = ""
+        return
+      case 2:
+      default:
+        this.name.first = name[0]
+        this.name.last = name[1]
+        return
+    }
+  }
+
+  unfollow(username: string): void {
+    let index = this.following.findIndex((value: User) => value.username == username)
+    if (index > -1) {
+      this.following.splice(index, 1)
+    }
+
+  }
+
+  follow(username: string): void {
+    let index = this.followers.findIndex((value: User) => value.username == username)
+    this.following.push(this.followers[index])
   }
 
   toJSON () : JSON {
     return {
-      id: this.id,
+      username: this.username,
       name: this.name,
       birthday: this.birthday,
       followers: this.followers,
