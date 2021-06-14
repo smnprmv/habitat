@@ -7,6 +7,7 @@ import { AppComponent } from '../components/app.component';
 import { ProfileComponent } from '../components/profile/profile.component';
 import { PersonComponent } from '../components/person/person.component';
 import { ButtonComponent } from '../components/button/button.component';
+import { TodoComponent } from '../components/todo/todo.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { ButtonComponent } from '../components/button/button.component';
     ProfileComponent,
     PersonComponent,
     ButtonComponent,
+    TodoComponent,
   ],
   imports: [
     BrowserModule,

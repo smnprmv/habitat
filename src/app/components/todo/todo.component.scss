@@ -1,0 +1,128 @@
+:host {
+  display: block;
+  width: 600px;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 0.5rem;
+  margin: 1.25rem auto;
+
+  .todo-list {
+
+    .subtitle {
+      font-size: 12px;
+      font-weight: 600;
+      color: #888;
+      text-transform: uppercase;
+    }
+
+    .todo-form {
+      padding: 1rem;
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+
+      .form-content {
+        padding-top: 10px;
+        display: flex;
+        gap: 0.5rem;
+
+        input {
+          width: 100%;
+          border: 0;
+          outline: none;
+          border-radius: 6px;
+          background: rgba(0,0,0,0.025);
+          padding: 12px;
+          font-family: 'Inter', sans-serif;
+          font-size: 1rem;
+          font-weight: 500;
+          box-sizing: border-box;
+          resize: none;
+          line-height: 140%;
+
+          &:focus {
+            background: rgba(0,0,0,0.05);
+          }
+        }
+
+        button {
+          background: #1F42F8;
+          color: #fff;
+          border: none;
+          font-family: 'Inter', sans-serif;
+          font-size: 16px;
+          font-weight: 600;
+          padding: 12px;
+          font-weight: 600;
+          border-radius: 6px;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .todos {
+      padding: 1rem;
+
+      .todo-section {
+        padding-bottom: 20px;
+
+        &:last-child {
+          padding-bottom: 0px;
+        }
+
+        .todo-items {
+  
+          .todo-item {
+            display: flex;
+            gap: 1rem;
+            cursor: pointer;
+            padding: 12px 0px;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+
+            &.completed {
+              opacity: 0.75;
+
+              .todo-status {
+                background: #1F42F8;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+  
+                &:before {
+                  opacity: 1;
+                }
+              }
+
+              .todo-objective {
+                text-decoration: line-through;
+              }
+            }
+  
+            &:last-child {
+              border-bottom: 0px;
+            }
+  
+            .todo-status {
+              width: 24px;
+              height: 24px;
+              background: rgba(0,0,0,0.025);
+              border-radius: 6px;
+              box-shadow: inset 0px 0px 0px 1.5px rgba(0,0,0,0.1);
+  
+              &:before {
+                content: url('data:image/svg+xml; utf8, <svg style="display: block" width="13" height="9" viewBox="0 0 13 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 4L5 8L12 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+                opacity: 0;
+                display: block;
+                margin-top: -3px;
+                margin-left: -2px;
+              }
+            }
+  
+            .todo-objective {
+              line-height: 24px;
+              font-size: 16px;
+              font-weight: 600;
+            }
+          }
+        }
+      }
+    }
+  }
+}

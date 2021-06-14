@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Todo, TodoList } from '../classes/todo';
 import { JSON, User } from '../classes/user';
 
 const people = {
@@ -54,6 +55,28 @@ const people = {
   }),
 }
 
+const current: Todo[] = [
+  Todo.fromJSON({
+    objective: 'Read a book',
+    checked: false
+  }),
+  Todo.fromJSON({
+    objective: 'Go for a walk',
+    checked: false
+  }),
+  Todo.fromJSON({
+    objective: 'Watch a new youtube poop',
+    checked: false
+  })
+]
+
+const completed: Todo[] = [
+  Todo.fromJSON({
+    objective: 'Walk the dog',
+    checked: true
+  })
+]
+
 @Injectable({
   providedIn: 'root'
 })
@@ -78,10 +101,19 @@ export class ApiService {
     ]
   })
 
+  private todoList: TodoList = TodoList.fromJSON({
+    current: current,
+    completed: completed
+  })
+
   constructor() {
   }
 
   getUser () : User {
     return this.user
+  }
+
+  getTodoList () : TodoList {
+    return this.todoList
   }
 }
