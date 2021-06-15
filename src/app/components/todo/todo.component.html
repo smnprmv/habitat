@@ -3,7 +3,9 @@
     <div class="subtitle">New objective</div>
     <div class="form-content">
       <input placeholder="Write what you want to do.." type="text" #value>
-      <button (click)="addTodo(value)">Add</button>
+      <input style="width: 80px;" placeholder="Hrs" type="number" #hours>
+      <input style="width: 80px;" placeholder="Min" type="number" #minutes>
+      <button (click)="addTodo(value, hours, minutes)">Add</button>
     </div>
   </div>
   <div class="todos">
@@ -13,6 +15,7 @@
         <div class="todo-item" *ngFor="let item of todo.current; let i = index" (click)="move('completed', i)">
           <div class="todo-status"></div>
           <div class="todo-objective">{{item.objective}}</div>
+          <div class="date">{{item.transfromDate()}}</div>
         </div>
       </div>
     </div>
@@ -22,6 +25,7 @@
         <div class="todo-item completed" *ngFor="let item of todo.completed let i = index" (click)="move('current', i)">
           <div class="todo-status"></div>
           <div class="todo-objective">{{item.objective}}</div>
+          <div class="date">{{item.transfromDate()}}</div>
         </div>
       </div>
     </div>

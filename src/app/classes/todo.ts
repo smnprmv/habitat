@@ -1,5 +1,11 @@
+export interface Hours {
+  hours: number
+  minutes: number
+}
+
 export interface TodoJSON {
   objective: string,
+  date: Hours,
   checked: boolean
 }
 
@@ -48,7 +54,8 @@ export class Todo {
   private _checked: boolean = false
 
   constructor (
-    private _objective: string
+    private _objective: string,
+    private _date: Hours
   ) { }
 
   set checked (value: boolean) {
@@ -56,12 +63,33 @@ export class Todo {
   }
 
   static fromJSON (json: TodoJSON) : Todo {
-    let todo = new Todo(json.objective)
+    let todo = new Todo(json.objective, json.date)
     todo.checked = json.checked
     return todo
   }
 
   get objective () {
     return this._objective
+  }
+
+  get date () {
+    return this._date
+  }
+
+  public transfromDate (): string {
+    let hours = new String
+    let am = true
+    let minutes = (this._date.minutes).toString()
+
+    if (this._date.hours >= 13) {
+      hours = (this._date.hours - 12).toString()
+      am = false
+    }
+    else if (this._date.hours == 0) {
+      hours = (this._date.hours + 12).toString()
+    }
+    else hours = (this._date.hours).toString()
+
+    return am ? `${hours}:${minutes} AM` : `${hours}:${minutes} PM`
   }
 }

@@ -23,11 +23,27 @@ export class TodoComponent implements OnInit {
     this.todo.moveObjective(index, type)
   }
 
-  addTodo (input: HTMLInputElement) {
-    if (input.value.trim() !== '') {
-      let object = new Todo(input.value.trim())
+  addTodo (input: HTMLInputElement, hrs: HTMLInputElement, min: HTMLInputElement) {
+    let spaceCheck: string[] = [
+      input.value.trim(),
+      hrs.value.trim(),
+      min.value.trim()
+    ]
+
+    console.log(spaceCheck)
+
+    if (spaceCheck.includes('')) {
+      return
+    }
+
+    if (parseInt(hrs.value) < 1 && parseInt(hrs.value) > 24) {
+      return
+    }
+    
+    if (parseInt(min.value) > 0 && parseInt(min.value) < 59) {
+      let object = new Todo(input.value.trim(), {hours: parseInt(hrs.value), minutes: parseInt(min.value)})
       this.todo.current.unshift(object)
-      input.value = ''
+      input.value = min.value = hrs.value = ''
     }
   }
 

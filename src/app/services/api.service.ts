@@ -58,14 +58,26 @@ const people = {
 const current: Todo[] = [
   Todo.fromJSON({
     objective: 'Read a book',
+    date: {
+      hours: 23, 
+      minutes: 45
+    },
     checked: false
   }),
   Todo.fromJSON({
     objective: 'Go for a walk',
+    date: {
+      hours: 5, 
+      minutes: 30
+    },
     checked: false
   }),
   Todo.fromJSON({
     objective: 'Watch a new youtube poop',
+    date: {
+      hours: 10, 
+      minutes: 22
+    },
     checked: false
   })
 ]
@@ -73,6 +85,10 @@ const current: Todo[] = [
 const completed: Todo[] = [
   Todo.fromJSON({
     objective: 'Walk the dog',
+    date: {
+      hours: 9, 
+      minutes: 59
+    },
     checked: true
   })
 ]
