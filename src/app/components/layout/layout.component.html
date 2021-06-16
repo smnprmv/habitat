@@ -1,0 +1,70 @@
+<!-- <div class="card-s">
+    <div class="card-image">
+        <div class="title">Coock</div>
+        <div class="card-info">
+            <div class="info-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi, nihil exercitationem eaque iure asperiores non. 
+                Hic odit dicta eaque tempora dolor veritatis quaerat, autem voluptates neque error eos tenetur ipsam.
+            </div>
+        </div>
+        <div class="buttons">
+            <button class="card-button">Button 1</button>
+            <button class="card-button">Button 2</button>
+        </div>
+    </div>
+</div> -->
+
+<div class="box">
+    <div class="library">
+        <div class="title">My library</div>
+        <div class="menu">
+            <div class="element" [ngClass]="{'active': section == 'Artists'}" (click)="section = 'Artists' ">
+                <span [ngStyle]="{'color': (section == 'Artists') ? cover() : 'black'}">Artists</span> 
+            </div>
+            <div class="element" [ngClass]="{'active': section == 'Albums'}" (click)="section = 'Albums' ">
+                <span [ngStyle]="{'color': (section == 'Albums') ? cover() : 'black'}">Albums</span>
+                <div class="notif">3</div>
+            </div>
+            <div class="element" [ngClass]="{'active': section == 'Songs'}" (click)="section = 'Songs' ">
+                <span [ngStyle]="{'color': (section == 'Songs') ? cover() : 'black'}">Songs</span>
+            </div>
+            <div class="element" [ngClass]="{'active': section == 'Playlists'}" (click)="section = 'Playlists' ">
+                <span [ngStyle]="{'color': (section == 'Playlists') ? cover() : 'black'}">Playlists</span>
+            </div>
+        </div>
+        <div class="exit">Sign out</div>
+    </div>
+    <div class="right">
+        <div class="albums">
+            <div class="title">{{section}}</div>
+            <div class="content">
+                <div class="el">
+                    <div class="cover" [ngStyle]="{'background': cover()}"></div>
+                    <div class="text">
+                        <ul>
+                            <li> {{section | slice: 0:-1}} name </li>
+                            <li> <span style="color: #888888; font-size: 14px;">Artist name</span> </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="el">
+                    <div class="cover" [ngStyle]="{'background': cover()}"></div>
+                    <div class="text">
+                        <ul>
+                            <li> {{section | slice: 0:-1}} name </li>
+                            <li> <span style="color: #888888; font-size: 14px;">Artist name</span> </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="el">
+                    <div class="cover" [ngStyle]="{'background': cover()}"></div>
+                    <div class="text">
+                        <ul>
+                            <li> {{section | slice: 0:-1}} name </li>
+                            <li> <span style="color: #888888; font-size: 14px;">Artist name</span> </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

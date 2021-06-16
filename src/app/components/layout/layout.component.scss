@@ -1,0 +1,180 @@
+:host {
+  // display: flex;
+  // width: 100%;
+  // height: 100%;
+  // align-items: center;
+  // justify-content: center;
+
+  .card-s {
+    width: 500px;
+    background: rgba(0,0,0,0.05);
+
+    .card-image {
+        height: 250px;
+        background: red;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+
+        .title {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .card-info {
+            display: flex;
+            gap: 0.5rem;
+            flex-direction: column;
+            padding: 0 2rem;
+    
+            .info-title {
+                font-weight: bold;
+                font-size: 1.5rem;
+            }
+    
+            .info-text {
+                font-size: 1rem;
+                font-weight: 400;
+                text-align: center;
+            }
+    
+        }
+
+        .buttons {
+            padding-top: 1rem;
+            display: flex;
+            justify-content: flex-end;
+            gap: 0.8rem;
+
+            .card-button {
+                padding: 0.5rem 1rem;
+            }
+        }
+    }
+  }
+
+  .box {
+      margin: 100px;
+      border-radius: 1rem;
+      border: 1px solid #DADADA;
+      box-shadow: 0 0 1rem rgba(0,0,0,0.1);
+      display: flex;
+      height: 400px;
+      width: 800px;
+      overflow: hidden;
+      font-size: 16px;
+      cursor: pointer;
+    //   filter: drop-shadow(16px 16px 20px red);
+
+      .library {
+          border-right: 1px solid #DADADA;
+          width: 230px;
+          background: #F8F8F8;
+          padding: 36px 24px;
+          box-sizing: border-box;
+          font-weight: 500;
+          display: flex;
+          flex-direction: column;
+
+          .title {
+            text-transform: uppercase;
+            color: #a0a0a0;
+            font-size: 14px; 
+            margin-bottom: 0.6rem;
+          }
+          
+          .menu {
+            display: flex;
+            flex-direction: column;
+            .element {
+                font-size: 1rem;
+                list-style-type: none;
+                padding-inline-start: 0;
+                margin-top: 0.6rem;
+                height: 1.6rem;
+                display: flex;
+                align-items: center;
+
+                &.active {
+                    font-weight: 600;
+                    font-size: 1.2rem;
+                    transition: linear 0.05s;
+                    
+                    .notif {
+                        background: #FF2532;
+                        transform: scale(1.1);
+                        transition: linear 0.05s;
+                    }
+                }
+                
+                .notif {
+                    padding: 0 0.3rem;
+                    height: 1.25rem;
+                    min-width: 1.25rem;
+                    text-align: center;
+                    line-height: 1.25rem;
+                    border-radius: 2rem;
+                    font-size: 12px;
+                    color: white;
+                    margin-left: auto;
+                    background: #C4C4C4;
+                } 
+            }
+          }
+
+          .exit {
+            font-size: 1rem;
+            margin-top: auto;
+            color: #FF2532;
+          }
+          
+      }
+
+      .right {
+            display: flex;
+            align-items: center;  
+
+          .albums {
+            padding: 0 40px;
+            display: flex;
+            box-sizing: border-box;
+            flex-direction: column;
+            gap: 30px;
+
+            .title {   
+                font-size: 2.25rem;
+                font-weight: bold;
+            }
+
+            .content {
+                display: flex;
+                gap: 20px;
+
+                .el {
+                    display: flex;
+                    flex-direction: column;
+
+                    .cover {
+                        width: 150px;
+                        height: 150px;
+                        background: #C4C4C4;
+                        border-radius: 10px;
+                    }
+
+                    .text {
+                        font-weight: 500;
+
+                        ul {
+                            list-style-type: none;
+                            padding-inline-start: 0;
+                        }
+                    }
+                    
+                }
+            }
+          }
+      }
+  }
+}

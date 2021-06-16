@@ -8,6 +8,7 @@ import { ProfileComponent } from '../components/profile/profile.component';
 import { PersonComponent } from '../components/person/person.component';
 import { ButtonComponent } from '../components/button/button.component';
 import { TodoComponent } from '../components/todo/todo.component';
+import { LayoutComponent } from '../components/layout/layout.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { TodoComponent } from '../components/todo/todo.component';
     PersonComponent,
     ButtonComponent,
     TodoComponent,
+    LayoutComponent,
   ],
   imports: [
     BrowserModule,
