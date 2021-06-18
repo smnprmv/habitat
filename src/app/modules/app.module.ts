@@ -9,6 +9,7 @@ import { PersonComponent } from '../components/person/person.component';
 import { ButtonComponent } from '../components/button/button.component';
 import { TodoComponent } from '../components/todo/todo.component';
 import { LayoutComponent } from '../components/layout/layout.component';
+import { GridComponent } from '../components/grid/grid.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { LayoutComponent } from '../components/layout/layout.component';
     ButtonComponent,
     TodoComponent,
     LayoutComponent,
+    GridComponent,
   ],
   imports: [
     BrowserModule,
