@@ -7,6 +7,7 @@
     box-sizing: border-box;
     font-size: 36px;
     font-weight: 500;
+    cursor: pointer;
 
     .container {
         display: flex;
@@ -59,18 +60,40 @@
                 aspect-ratio: 1/1;
                 justify-content: center;
                 align-items: center;
+                transition: linear 0.1s;
+
+                &:hover {
+                    transform: scale(1.05);
+                    transition: linear 0.1s;
+                }
 
                 &.func {
                     background: #E2E2E2;
+
+                    &:active {
+                        background: white;
+                        transition: linear 0.05s;
+                    }
                 }
 
                 &.oper {
                     background: #FFBF1A;
+
+                    &:active {
+                        background: white;
+                        color: #FFBF1A;
+                        transition: linear 0.05s;
+                    }
                 }
 
                 &.number {
                     background: #2F2F2F;
                     color: white;
+
+                    &:active {
+                        background: #686868;
+                        transition: linear 0.05s;
+                    }
                 }
 
                 &.zero {
