@@ -15,7 +15,8 @@ import { CommonModule } from '@angular/common';
 import { ArtistsComponent } from '../components/layout/artists/artists.component';
 import { AlbumsComponent } from '../components/layout/albums/albums.component';
 import { SongsComponent } from '../components/layout/songs/songs.component';
-import { PlaylistsComponent } from '../components/layout/playlists/playlists.component'
+import { PlaylistsComponent } from '../components/layout/playlists/playlists.component';
+import { CalcComponent } from '../components/calc/calc.component'
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { PlaylistsComponent } from '../components/layout/playlists/playlists.com
     AlbumsComponent,
     SongsComponent,
     PlaylistsComponent,
+    CalcComponent,
   ],
   imports: [
     BrowserModule,

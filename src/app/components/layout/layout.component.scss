@@ -101,6 +101,24 @@
                         }
                     }
 
+                    &.albums {
+                        .element {
+                            color: #FF2532;
+                        }
+                    }
+
+                    &.songs {
+                        .element {
+                            color: #64ed32;
+                        }
+                    }
+
+                    &.playlists {
+                        .element {
+                            color: #ffc925;
+                        }
+                    }
+
                     .element {
                         font-weight: 600;
                         font-size: 1.2rem;

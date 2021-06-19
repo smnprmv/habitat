@@ -22,8 +22,20 @@
                     Artists
                 </div>
             </a>
-            <a>
-
+            <a [routerLink]="['albums']" routerLinkActive="active albums" >
+                <div class="element">
+                    Albums
+                </div>
+            </a>
+            <a [routerLink]="['songs']" routerLinkActive="active songs" >
+                <div class="element">
+                    Songs
+                </div>
+            </a>
+            <a [routerLink]="['playlists']" routerLinkActive="active playlists" >
+                <div class="element">
+                    Playlists
+                </div>
             </a>
             <!-- <div class="element" [ngClass]="{'active': section == 'Artists'}" (click)="section = 'Artists' ">
                 <span [ngStyle]="{'color': (section == 'Artists') ? cover() : 'black'}">Artists</span>

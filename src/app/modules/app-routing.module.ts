@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CalcComponent } from '../components/calc/calc.component';
 import { GridComponent } from '../components/grid/grid.component';
 import { IosComponent } from '../components/ios/ios.component'
 import { AlbumsComponent } from '../components/layout/albums/albums.component'
@@ -16,6 +17,9 @@ const routes: Routes = [{
 }, {
   path: 'todo',
   component: TodoComponent
+}, {
+  path: 'calc',
+  component: CalcComponent
 }, {
   path: 'player',
   redirectTo: 'player/artists',
