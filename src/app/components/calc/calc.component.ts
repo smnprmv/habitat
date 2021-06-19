@@ -29,6 +29,7 @@ export class CalcComponent implements OnInit {
 
   clearMem() {
     this.sceleton = []
+    this._operation = undefined
     this._history = ''
     this._ans = '0'
   }
@@ -55,15 +56,12 @@ export class CalcComponent implements OnInit {
   }
 
   operation(type: '×' | '÷' | '-' | '+' | undefined) {
-    this._operation = type
     this.equal()
+    this._operation = type
+    this._history += this._operation
   }
 
   equal() {
-    if (this.sceleton.length == 0 && this._ans == '0') {
-      return
-    }
-
     if (!this.display) {
       this.sceleton[1] = parseFloat(this._ans)
       this.display = true
@@ -78,10 +76,15 @@ export class CalcComponent implements OnInit {
         break
       case '-': this._ans = this.sceleton.reduce((x, y) => x - y).toString()
         break 
-      default: return
+      default: break
     }
     this.sceleton[0] = parseFloat(this._ans)
-    this._history += this.sceleton[1] + this._operation
+    // if (this._operation == undefined) {
+      this._history += this.sceleton[1]
+    // }
+    // else {
+    //   this._history += this._operation + this.sceleton[1]
+    // }
   }
 
   get ans (): string {
